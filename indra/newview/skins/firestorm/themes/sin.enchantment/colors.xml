@@ -2,15 +2,22 @@
 <colors>
    <!--
       TODO:
-       - Color of appearance accordions. A little too pink / light. Note that it is also used in teleport history
+       - Color of appearance accordions. A little too pink / light. Note that it is also used in teleport
+   history
        - Region restart window? Uses Orange for background, unkonwn for text
    -->
    <color
       name="AccentColor"
       value="1.000 0.820 0.000 1.0"
       backup-value="0.75 0.92 0.49 1.0"/>
+   <!-- Used for toolbar button highlight at least. -->
    <color
       name="EmphasisColor"
+      value="0.814 0.566 0.092 1.0"
+      backup-value="0.56 0.36 0.25 1.0"/>
+   <!-- Actual emphasis color that we want to use on other components. -->
+   <color
+      name="EmphasisColor_Actual"
       value="0.860 0.705 0.000 1.0"
       backup-value="0.56 0.36 0.25 1.0"/>
    <color
@@ -330,7 +337,7 @@
       reference="EmphasisColor_35"/>
    <color
       name="PieMenuSelectedColorOverride"
-      reference="EmphasisColor"/>
+      reference="EmphasisColor_Actual"/>
    <color
       name="PropertyColorAuction"
       value="0.5 0 1 0.4"/>
@@ -378,7 +385,8 @@
       reference="LtGray"/>
    <color
       name="AgentChatColor"
-      reference="White"/>
+      reference="LtGray"
+      backup-reference="White"/>
    <color
       name="AgentIMColor"
       reference="White"/>
@@ -445,10 +453,10 @@
       reference="Unused?"/>
    <color
       name="ButtonCautionImageColor"
-      reference="EmphasisColor"/>
+      reference="EmphasisColor_Actual"/>
    <color
       name="ButtonColor"
-      reference="EmphasisColor"/>
+      reference="EmphasisColor_Actual"/>
    <color
       name="ButtonFlashBgColor"
       value="1.000 0.000 0.000 1.000"
@@ -464,6 +472,7 @@
    <color
       name="ButtonLabelDisabledColor"
       reference="White_25"/>
+   <!-- Used for selected tabs, but also button like animation "Play". -->
    <color
       name="ButtonLabelSelectedColor"
       reference="Black"
@@ -620,7 +629,7 @@
       reference="Black"/>
    <color
       name="FilterTextColor"
-      reference="EmphasisColor"/>
+      reference="EmphasisColor_Actual"/>
    <color
       name="FloaterButtonImageColor"
       reference="LtGray"/>
@@ -642,10 +651,10 @@
    <color
       name="FocusColor"
       value="1.000 0.820 0.000 1.0"
-      backup-reference="EmphasisColor"/>
+      backup-reference="EmphasisColor_Actual"/>
    <color
       name="FolderViewLoadingMessageTextColor"
-      reference="EmphasisColor"/>
+      reference="EmphasisColor_Actual"/>
    <color
       name="GridFocusPointColor"
       reference="White_50"/>
@@ -750,10 +759,10 @@
       reference="LtGray_35"/>
    <color
       name="InventorySearchStatusColor"
-      reference="EmphasisColor"/>
+      reference="EmphasisColor_Actual"/>
    <color
       name="InventoryProtectedColor"
-      reference="EmphasisColor"/>
+      reference="EmphasisColor_Actual"/>
    <color
       name="LabelDisabledColor"
       reference="White_25"/>
@@ -957,11 +966,11 @@
    <color
       name="ObjectChatColor"
       value="0.56 0.36 0.25 1.0"
-      backup-reference="EmphasisColor"/>
+      backup-reference="EmphasisColor_Actual"/>
    <color
       name="ObjectIMColor"
       value="0.56 0.36 0.25 1.0"
-      backup-reference="EmphasisColor"/>
+      backup-reference="EmphasisColor_Actual"/>
    <color
       name="OverdrivenColor"
       reference="Red"/>
@@ -1056,7 +1065,7 @@
       reference="Black"/>
    <color
       name="SelectedOutfitTextColor"
-      reference="EmphasisColor"/>
+      reference="EmphasisColor_Actual"/>
    <color
       name="SearchableControlHighlightFontColor"
       reference="Red"/>
@@ -1150,7 +1159,8 @@
       reference="LtYellow"/>
    <color
       name="FriendsChatColor"
-      reference="White"/>
+      reference="LtGray"
+      backup-reference="White"/>
    <color
       name="LindenChatColor"
       reference="LtBlue"/>
@@ -1170,7 +1180,7 @@
       reference="SL-Titanium"/>
    <color
       name="ChatToastAgentNameColor"
-      reference="EmphasisColor"/>
+      reference="EmphasisColor_Actual"/>
    <color
       name="ChatTeleportSeparatorColor"
       reference="Black"/>
@@ -1272,7 +1282,7 @@
    <color
       name="Phototools_Header"
       value="0.250 0.250 0.250 1.0"
-      backup-reference="EmphasisColor"/>
+      backup-reference="EmphasisColor_Actual"/>
 
    <!-- syntax highlighting (LSL Scripts) -->
    <color
@@ -1316,10 +1326,10 @@
       value="0 .2 0 1"/>
    <color
       name="OutfitGalleryItemSelected"
-      reference="EmphasisColor"/>
+      reference="EmphasisColor_Actual"/>
    <color
       name="OutfitGalleryItemWorn"
-      reference="EmphasisColor"/>
+      reference="EmphasisColor_Actual"/>
    <color
       name="OutfitGalleryItemUnselected"
       value="0.4 0.4 0.4 1"/>
@@ -1398,7 +1408,7 @@
       reference="Black"/>
    <color
       name="ScriptSelectedColor"
-      reference="EmphasisColor"/>
+      reference="EmphasisColor_Actual"/>
    <color
       name="MapPickRadiusColor"
       reference="MapFrustumColor"/>
@@ -1441,7 +1451,7 @@
    <color
       name="NotecardSelectionColor"
       reference="simpleeditor_bg_selected"
-      backup-reference="EmphasisColor"/>
+      backup-reference="EmphasisColor_Actual"/>
    <color
       name="NotecardCursorColor"
       reference="TextCursorColor"/>
