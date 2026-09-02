@@ -1287,43 +1287,52 @@
    <!-- syntax highlighting (LSL Scripts) -->
    <color
       name="ScriptText"
-      reference="Black"/>
+      reference="TextFgColor"
+      backup-reference="Black"/>
    <color
       name="ScriptBackground"
-      reference="White"/>
+      value="0.100 0.100 0.100 1.000"
+      backup-reference="White"/>
    <color
       name="ScriptCursorColor"
       reference="Black"/>
    <color
       name="SyntaxLslComment"
-      value=".8 .3 .15 1"/>
+      value="0.694 0.388 0.294 1.000"
+      backup-value=".8 .3 .15 1"/>
    <color
       name="SyntaxLslConstant"
       value="0 0.6 0.6 1"/>
    <color
       name="SyntaxLslControlFlow"
-      value="0 0 .8 1"/>
+      value="0.096 0.639 0.998 1.000"
+      backup-value="0 0 .8 1"/>
    <color
       name="SyntaxLslControlLabel"
-      value="0 0 0.8 1"/> <!-- Ansariel: Apparently unused -->
+      value="0.096 0.639 0.998 1.000"
+      backup-value="0 0 0.8 1"/> <!-- Ansariel: Apparently unused --> <!-- Sin: Actually used -->
    <color
       name="SyntaxLslDataType"
-      value=".1 .3 .1 1"/>
+      value="0.991 0.894 0.368 1.000"
+      backup-value=".1 .3 .1 1"/>
    <color
       name="SyntaxLslDeprecated"
       value="0.9 0.0 0.66, 1"/>
    <color
       name="SyntaxLslEvent"
-      value="0 0.3 0.5 1"/>
+      value="0.117 0.379 1.000 1.000"
+      backup-value="0 0.3 0.5 1"/>
    <color
       name="SyntaxLslFunction"
-      value=".5 0 .15 1"/>
+      value="0.787 0.221 0.391 1.000"
+      backup-value=".5 0 .15 1"/>
    <color
       name="SyntaxLslGodMode"
       value="0.7 .2 .35 1"/>
    <color
       name="SyntaxLslStringLiteral"
-      value="0 .2 0 1"/>
+      value="0.000 0.616 0.000 1.000"
+      backup-value="0 .2 0 1"/>
    <color
       name="OutfitGalleryItemSelected"
       reference="EmphasisColor_Actual"/>
@@ -1352,13 +1361,16 @@
       value=".5 .1 .3 1"/>
    <color
       name="SyntaxLslIntegerConstant"
-      value=".1 .1 .5 1"/>
+      value="0.421 0.421 0.884 1.000"
+      backup-value=".1 .1 .5 1"/>
    <color
       name="SyntaxLslStringConstant"
-      value=".1 .3 .5 1"/>
+      value="0.000 0.616 0.000 1.000"
+      backup-value=".1 .3 .5 1"/>
    <color
       name="SyntaxLslFloatConstant"
-      value=".3 .1 .5 1"/>
+      value="0.570 0.284 0.857 1.000"
+      backup-value=".3 .1 .5 1"/>
    <color
       name="SyntaxLslCompoundConstant"
       value=".4 .2 .4 1"/>
@@ -1444,7 +1456,8 @@
       reference="Blue_80"/>
    <color
       name="NotecardBackgroundColor"
-      reference="TextBgFocusColor"/>
+      value="0.100 0.100 0.100 1.000"
+      backup-reference="TextBgFocusColor"/>
    <color
       name="NotecardTextColor"
       reference="TextFgColor"/>
