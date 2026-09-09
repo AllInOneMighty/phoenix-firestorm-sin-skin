@@ -1,35 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <colors>
-   <!--
-      TODO:
-       - Color of appearance accordions. A little too pink / light. Note that it is also used in teleport
-   history
-       - Region restart window? Uses Orange for background, unkonwn for text
-   -->
    <color
       name="AccentColor"
-      value="1.000 0.820 0.000 1.0"
-      backup-value="0.75 0.92 0.49 1.0"/>
+      value="1.000 0.820 0.000 1.0"/>
    <!-- Used for toolbar button highlight at least. -->
    <color
       name="EmphasisColor"
-      value="0.814 0.566 0.092 1.0"
-      backup-value="0.56 0.36 0.25 1.0"/>
+      value="0.814 0.566 0.092 1.0"/>
    <!-- Actual emphasis color that we want to use on other components. -->
    <color
       name="EmphasisColor_Actual"
-      value="0.860 0.705 0.000 1.0"
-      backup-value="0.56 0.36 0.25 1.0"/>
+      value="0.860 0.705 0.000 1.0"/>
    <color
       name="EmphasisColorLight"
-      value="1.000 0.820 0.400 1.0"
-      backup-value="0.86 0.66 0.55 1.0"/>
+      value="1.000 0.820 0.400 1.0"/>
    <color
       name="SchemeLightest"
       value="0.76 0.58 0.49 1.0"/>
    <color
       name="SchemeLightest_35"
       value="0.76 0.58 0.49 0.35"/>
+   <color
+      name="SchemeLightestRed_35"
+      value="0.891 0.000 0.000 0.350"/>
    <color
       name="SchemeDark"
       value="0.49 0.33 0.25 1.0"/>
@@ -62,20 +55,16 @@
       value="1 1 1 0.7"/>
    <color
       name="LtGray"
-      value="0.85 0.85 0.85 1"
-      backup-value="0.90 0.90 0.90 1"/>
+      value="0.85 0.85 0.85 1"/>
    <color
       name="LtGray_35"
-      value="0.70 0.70 0.70 0.35"
-      backup-value="0.75 0.75 0.75 0.35"/>
+      value="0.70 0.70 0.70 0.35"/>
    <color
       name="LtGray_50"
-      value="0.85 0.85 0.85 0.50"
-      backup-value="0.90 0.90 0.90 0.50"/>
+      value="0.85 0.85 0.85 0.50"/>
    <color
       name="LtGray_75"
-      value="0.85 0.85 0.85 0.75"
-      backup-value="0.90 0.90 0.90 0.75"/>
+      value="0.85 0.85 0.85 0.75"/>
    <color
       name="Gray"
       value="0.5 0.5 0.5 1"/>
@@ -127,7 +116,6 @@
    <color
       name="Green"
       value="0 1 0 1"/>
-   <!-- Ansariel: Added missing referenced color -->
    <color
       name="LtGreen"
       value="0.79 1 0.79 1"/>
@@ -156,12 +144,10 @@
    <!-- Script dialog -->
    <color
       name="ScriptDialog"
-      value=".125 .125 0.125 1"
-      backup-value=".27 .66 1.0 1"/>
+      reference="DkGray"/>
    <color
       name="ScriptDialogFg"
-      reference="LtGray"
-      backup-value=".05 .05 .05 1"/>
+      reference="LtGray"/>
 
    <!-- Skin and Theme Colors -->
 
@@ -176,10 +162,10 @@
       value="0.150 0.70 0.290 1"/>
    <color
       name="SL-Background_Light"
-      value="0.125 0.125 0.125 1"/>
+      reference="DkGray"/>
    <color
       name="SL-Background"
-      value="0.125 0.125 0.125 1"/>
+      reference="DkGray"/>
    <color
       name="SL-Background_50"
       value="0.125 0.125 0.125 0.50"/>
@@ -277,9 +263,7 @@
    <!-- UI Colors -->
    <color
       name="TextFgColor"
-      reference="LtGray"
-      backup-value="0.102 0.102 0.102 1"
-      backup-reference="White"/>
+      reference="White"/>
    <color
       name="BottomTrayAlphaColor"
       reference="Transparent"/>
@@ -322,7 +306,7 @@
       value="0 0.78 0.78 1"/>
    <color
       name="PieMenuBgColor"
-      value="0.24 0.24 0.24 0.8"/>
+      value="0.195 0.195 0.195 1.0"/>
    <color
       name="PieMenuBgColorOverride"
       value="0.24 0.24 0.24 1.0"/>
@@ -334,7 +318,7 @@
       reference="SL-White"/>
    <color
       name="PieMenuSelectedColor"
-      reference="EmphasisColor_35"/>
+      value="0.800 0.000 0.000 1.000"/>
    <color
       name="PieMenuSelectedColorOverride"
       reference="EmphasisColor_Actual"/>
@@ -361,8 +345,7 @@
       value="0.45098 0.517647 0.607843 1"/>
    <color
       name="TextEmbeddedItemColor"
-      reference="White"
-      backup-value="1.00 0.549 0.267 1"/>
+      reference="White"/>
    <color
       name="ToolTipBgColor"
       value="Purple"/>
@@ -385,8 +368,7 @@
       reference="LtGray"/>
    <color
       name="AgentChatColor"
-      reference="LtGray"
-      backup-reference="White"/>
+      reference="White"/>
    <color
       name="AgentIMColor"
       reference="White"/>
@@ -459,24 +441,21 @@
       reference="EmphasisColor_Actual"/>
    <color
       name="ButtonFlashBgColor"
-      value="1.000 0.000 0.000 1.000"
-      backup-reference="Unused?"/>
+      value="1.000 0.000 0.000 1.000"/>
    <!-- Color Changed -->
    <color
       name="ButtonImageColor"
       reference="SL-White"/>
    <color
       name="ButtonLabelColor"
-      value="0.960 0.726 0.321 1.0"
-      backup-reference="LtGray"/>
+      value="0.960 0.726 0.321 1.0"/>
    <color
       name="ButtonLabelDisabledColor"
       reference="White_25"/>
    <!-- Used for selected tabs, but also button like animation "Play". -->
    <color
       name="ButtonLabelSelectedColor"
-      reference="Black"
-      backup-reference="White"/>
+      reference="Black"/>
    <color
       name="ButtonLabelSelectedDisabledColor"
       reference="White_25"/>
@@ -650,8 +629,7 @@
    <!-- Border of active input fields and border of certain list active selections. -->
    <color
       name="FocusColor"
-      value="1.000 0.820 0.000 1.0"
-      backup-reference="EmphasisColor_Actual"/>
+      reference="AccentColor"/>
    <color
       name="FolderViewLoadingMessageTextColor"
       reference="EmphasisColor_Actual"/>
@@ -681,8 +659,7 @@
       value="0.5 0.5 0.5 1"/>
    <color
       name="HTMLLinkColor"
-      value="1.000 0.867 0.259 1.0"
-      backup-reference="AccentColor"/>
+      value="1.000 0.867 0.259 1.0"/>
    <color
       name="HealthTextColor"
       reference="White"/>
@@ -727,12 +704,10 @@
       reference="Transparent"/>
    <color
       name="InventoryFavoriteColor"
-      reference="AccentColor"
-      backup-reference="Yellow"/>
+      reference="AccentColor"/>
    <color
       name="InventoryFocusOutlineColor"
-      value="1.000 0.820 0.000 0.600"
-      backup-reference="White_25"/>
+      value="1.000 0.820 0.000 0.600"/>
    <color
       name="InventoryItemEnabledColor"
       reference="LtGray"/>
@@ -851,8 +826,7 @@
       reference="LtGray"/>
    <color
       name="MenuItemHighlightBgColor"
-      value="0.891 0.000 0.000 0.350"
-      backup-reference="SchemeLightest_35"/>
+      reference="SchemeLightestRed_35"/>
    <color
       name="MenuItemFlashBgColor"
       reference="BeaconColor"/>
@@ -957,20 +931,16 @@
       reference="DkGray_66"/>
    <color
       name="ChatNameColor"
-      value="0.75 0.92 0.49 1.0"
-      backup-reference="AccentColor"/>
+      reference="NameTagFriend"/>
    <color
       name="ChatNameObjectColor"
-      value="0.75 0.92 0.49 1.0"
-      backup-reference="AccentColor"/>
+      reference="NameTagFriend"/>
    <color
       name="ObjectChatColor"
-      value="0.56 0.36 0.25 1.0"
-      backup-reference="EmphasisColor_Actual"/>
+      value="0.56 0.36 0.25 1.0"/>
    <color
       name="ObjectIMColor"
-      value="0.56 0.36 0.25 1.0"
-      backup-reference="EmphasisColor_Actual"/>
+      reference="ObjectChatColor"/>
    <color
       name="OverdrivenColor"
       reference="Red"/>
@@ -1045,12 +1015,10 @@
       reference="Unused?"/>
    <color
       name="ScrollHoveredColor"
-      value="1.000 0.000 0.000 0.130"
-      backup-reference="EmphasisColor_13"/>
+      value="1.000 0.000 0.000 0.130"/>
    <color
       name="ScrollSelectedBGColor"
-      value="0.891 0.000 0.000 0.350"
-      backup-reference="EmphasisColor_35"/>
+      reference="SchemeLightestRed_35"/>
    <color
       name="ScrollSelectedFGColor"
       reference="White"/>
@@ -1071,8 +1039,7 @@
       reference="Red"/>
    <color
       name="SearchableControlHighlightBgColor"
-      value="0.376 0.000 0.000 1.0"
-      backup-reference="Red"/>
+      value="0.376 0.000 0.000 1.0"/>
    <!-- Color Changed -->
    <color
       name="SilhouetteChildColor"
@@ -1097,44 +1064,34 @@
       reference="FrogGreen"/>
    <color
       name="SystemChatColor"
-      value="0.000 1.000 1.000 1.000"
-      backup-reference="LtGray"/>
+      value="0.000 1.000 1.000 1.000"/>
    <color
       name="TextBgFocusColor"
-      reference="Black"
-      backup-reference="White"/>
+      reference="Black"/>
    <color
       name="TextBgReadOnlyColor"
-      reference="DkGray"
-      backup-reference="White_05"/>
+      reference="DkGray"/>
    <color
       name="TextBgWriteableColor"
-      reference="Black"
-      backup-reference="LtGray"
-      backup-reference-2="DkGray"/>
+      reference="Black"/>
    <color
       name="TextBgHighlightColor"
       reference="EmphasisColorLight"/>
    <color
       name="TextCursorColor"
-      reference="White"
-      backup-reference="Black"/>
+      reference="White"/>
    <color
       name="TextDefaultColor"
-      reference="White"
-      backup-reference="Black"/>
+      reference="White"/>
    <color
       name="TextEmbeddedItemReadOnlyColor"
       reference="SchemeLightest"/>
    <color
       name="TextFgReadOnlyColor"
-      reference="LtGray_50"
-      backup-reference="LtGray"/>
+      reference="LtGray_50"/>
    <color
       name="TextFgTentativeColor"
-      value="0.822 0.264 0.264 1.000"
-      backup-reference="SL-TitaniumGray"
-      backup-reference-2="LtGray_50"/>
+      value="0.822 0.264 0.264 1.000"/>
    <color
       name="TimeTextColor"
       reference="LtGray"/>
@@ -1146,8 +1103,7 @@
       value="0.3 0.3 0.3 0"/>
    <color
       name="ToolTipTextColor"
-      reference="LtGray"
-      backup-reference="Black"/>
+      reference="LtGray"/>
    <color
       name="InspectorTipTextColor"
       reference="LtGray"/>
@@ -1159,8 +1115,7 @@
       reference="LtYellow"/>
    <color
       name="FriendsChatColor"
-      reference="LtGray"
-      backup-reference="White"/>
+      reference="White"/>
    <color
       name="LindenChatColor"
       reference="LtBlue"/>
@@ -1186,8 +1141,7 @@
       reference="Black"/>
    <color
       name="ChatTimestampColor"
-      value="0.750 0.750 0.750 1.0"
-      backup-reference="White"/>
+      value="0.750 0.750 0.750 1.0"/>
    <color
       name="MenuBarBetaBgColor"
       reference="DkBlue"/>
@@ -1281,58 +1235,48 @@
 
    <color
       name="Phototools_Header"
-      value="0.250 0.250 0.250 1.0"
-      backup-reference="EmphasisColor_Actual"/>
+      value="0.250 0.250 0.250 1.0"/>
 
    <!-- syntax highlighting (LSL Scripts) -->
    <color
       name="ScriptText"
-      reference="TextFgColor"
-      backup-reference="Black"/>
+      reference="LtGray"/>
    <color
       name="ScriptBackground"
-      value="0.100 0.100 0.100 1.000"
-      backup-reference="White"/>
+      value="0.100 0.100 0.100 1.000"/>
    <color
       name="ScriptCursorColor"
       reference="Black"/>
    <color
       name="SyntaxLslComment"
-      value="0.694 0.388 0.294 1.000"
-      backup-value=".8 .3 .15 1"/>
+      value="0.694 0.388 0.294 1.000"/>
    <color
       name="SyntaxLslConstant"
       value="0 0.6 0.6 1"/>
    <color
       name="SyntaxLslControlFlow"
-      value="0.096 0.639 0.998 1.000"
-      backup-value="0 0 .8 1"/>
+      value="0.096 0.639 0.998 1.000"/>
    <color
       name="SyntaxLslControlLabel"
-      value="0.096 0.639 0.998 1.000"
-      backup-value="0 0 0.8 1"/> <!-- Ansariel: Apparently unused --> <!-- Sin: Actually used -->
+      reference="SyntaxLslControlFlow"/> <!-- Ansariel: Apparently unused --> <!-- Sin: Actually used -->
    <color
       name="SyntaxLslDataType"
-      value="0.991 0.894 0.368 1.000"
-      backup-value=".1 .3 .1 1"/>
+      value="0.991 0.894 0.368 1.000"/>
    <color
       name="SyntaxLslDeprecated"
       value="0.9 0.0 0.66, 1"/>
    <color
       name="SyntaxLslEvent"
-      value="0.117 0.379 1.000 1.000"
-      backup-value="0 0.3 0.5 1"/>
+      value="0.117 0.379 1.000 1.000"/>
    <color
       name="SyntaxLslFunction"
-      value="0.787 0.221 0.391 1.000"
-      backup-value=".5 0 .15 1"/>
+      value="0.787 0.221 0.391 1.000"/>
    <color
       name="SyntaxLslGodMode"
       value="0.7 .2 .35 1"/>
    <color
       name="SyntaxLslStringLiteral"
-      value="0.000 0.616 0.000 1.000"
-      backup-value="0 .2 0 1"/>
+      value="0.000 0.616 0.000 1.000"/>
    <color
       name="OutfitGalleryItemSelected"
       reference="EmphasisColor_Actual"/>
@@ -1361,16 +1305,13 @@
       value=".5 .1 .3 1"/>
    <color
       name="SyntaxLslIntegerConstant"
-      value="0.421 0.421 0.884 1.000"
-      backup-value=".1 .1 .5 1"/>
+      value="0.421 0.421 0.884 1.000"/>
    <color
       name="SyntaxLslStringConstant"
-      value="0.000 0.616 0.000 1.000"
-      backup-value=".1 .3 .5 1"/>
+      reference="SyntaxLslStringLiteral"/>
    <color
       name="SyntaxLslFloatConstant"
-      value="0.570 0.284 0.857 1.000"
-      backup-value=".3 .1 .5 1"/>
+      value="0.570 0.284 0.857 1.000"/>
    <color
       name="SyntaxLslCompoundConstant"
       value=".4 .2 .4 1"/>
@@ -1410,11 +1351,10 @@
       reference="Yellow"/>
    <color
       name="FSChatHistoryBackground"
-      reference="DkGray"
-      backup-reference="Transparent"/>
+      reference="DkGray"/>
    <color
       name="ChatHeaderAlphaBackground"
-      reference="DkGray_66"/>
+      value="0.220 0.220 0.220 1.0"/>
    <color
       name="ChatHeaderOpaqueBackground"
       reference="Black"/>
@@ -1456,15 +1396,13 @@
       reference="Blue_80"/>
    <color
       name="NotecardBackgroundColor"
-      value="0.100 0.100 0.100 1.000"
-      backup-reference="TextBgFocusColor"/>
+      reference="ScriptBackground"/>
    <color
       name="NotecardTextColor"
-      reference="TextFgColor"/>
+      reference="LtGray"/>
    <color
       name="NotecardSelectionColor"
-      reference="simpleeditor_bg_selected"
-      backup-reference="EmphasisColor_Actual"/>
+      reference="simpleeditor_bg_selected"/>
    <color
       name="NotecardCursorColor"
       reference="TextCursorColor"/>
@@ -1488,8 +1426,7 @@
       value="0.633 0.882 0.250 1"/>
    <color
       name="ChatMentionHighlight"
-      value="0.500 0.000 0.000 1"
-      backup-value="0.561 0.361 0.251 1"/>
+      value="0.500 0.000 0.000 1"/>
    <color
       name="ChatSelfMentionHighlight"
       value="0.709 0.250 0.190 1"/>
