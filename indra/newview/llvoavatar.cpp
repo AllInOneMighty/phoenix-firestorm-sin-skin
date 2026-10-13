@@ -1302,6 +1302,14 @@ void LLVOAvatar::cleanupClass()
 }
 
 LLPartSysData LLVOAvatar::sCloud;
+
+// <FS:TP> [FIRE-36987] track the signal connections so initCloud() can
+// disconnect and reconnect cleanly if it runs more than once (there is
+// a menu option to reload the particle cloud)
+boost::signals2::connection LLVOAvatar::sCloudColorStartConnection;
+boost::signals2::connection LLVOAvatar::sCloudColorEndConnection;
+// </FS:TP>
+
 void LLVOAvatar::initCloud()
 {
     // fancy particle cloud designed by Brent
@@ -1338,7 +1346,50 @@ void LLVOAvatar::initCloud()
     // llifstream in_file_muted(filename);
     llifstream in_file_muted(filename.c_str());
     // </FS:ND>
+
+    // <FS:TP> [FIRE-36987] Selectable avatar loading/bakefail cloud color
+    // Apply whatever start/end colors are currently saved, on top of
+    // whatever cloud.xml just loaded above, then keep re-applying live if
+    // the user changes either preference later (no restart needed - see
+    // applyCloudColor()).
+    applyCloudColor();
+
+    // disconnect any previous connection first, since initCloud() can run
+    // more than once (menu option to reload the particle cloud), then bind
+    // straight to applyCloudColor() - no wrapper needed since the signal's
+    // new_value/old_value aren't used
+    if (sCloudColorStartConnection.connected())
+    {
+        sCloudColorStartConnection.disconnect();
+    }
+    sCloudColorStartConnection = gSavedSettings.getControl("FSCloudColorStart")->getSignal()->connect(
+        boost::bind(&LLVOAvatar::applyCloudColor));
+
+    if (sCloudColorEndConnection.connected())
+    {
+        sCloudColorEndConnection.disconnect();
+    }
+    sCloudColorEndConnection = gSavedSettings.getControl("FSCloudColorEnd")->getSignal()->connect(
+        boost::bind(&LLVOAvatar::applyCloudColor));
+    // </FS:TP>
 }
+
+void LLVOAvatar::applyCloudColor()
+{
+    // Same alpha envelope (0.1 -> 0.9) and burst/scale/pattern as the
+    // stock Firestorm cloud.xml - only the start/end hues are user
+    // configurable, so changing colors doesn't change the shape/behavior
+    // of the effect. Alpha is intentionally not exposed to the color
+    // pickers and is forced back to the stock values here.
+    LLColor4 start_color = gSavedSettings.getColor4("FSCloudColorStart");
+    LLColor4 end_color   = gSavedSettings.getColor4("FSCloudColorEnd");
+    start_color.mV[VALPHA] = 0.1f;
+    end_color.mV[VALPHA]   = 0.9f;
+
+    sCloud.mPartData.mStartColor = start_color;
+    sCloud.mPartData.mEndColor   = end_color;
+}
+// </FS:TP>
 
 // virtual
 void LLVOAvatar::initInstance()
@@ -4775,9 +4826,15 @@ bool LLVOAvatar::isRlvSilhouette() const
     if (!RlvActions::hasBehaviour(RLV_BHVR_SETCAM_AVDIST))
         return false;
 
-    // <FS> FIRE-34340-2 RLV silhouette should not override the user's complexity settings
-    if (isSelf() || isTooComplex() || isTooSlowWithoutShadows())
+    // <FS> FIRE-34340-2 Your own avatar and attached animesh shouldn't be a silhouette
+    if (isSelf())
         return false;
+
+    if (const LLVOAvatar* wearer = getAttachedAvatar())
+    {
+        if (wearer->isSelf())
+            return false;
+    }
     // </FS>
 
     static RlvCachedBehaviourModifier<float> s_nSetCamAvDist(RLV_MODIFIER_SETCAM_AVDIST);
@@ -9743,6 +9800,12 @@ bool LLVOAvatar::hasFirstFullAttachmentData() const
 
 bool LLVOAvatar::isTooComplex() const
 {
+    // [RLVa] FIRE-35778 @camavdist:1=n RLVa command turns avatars invisible instead of a silhouette (fix from Ellie Sable)
+    if (isRlvSilhouette())
+    {
+        return true;
+    }
+    // [/RLVa]
     bool too_complex;
     static LLCachedControl<S32> complexity_render_mode(gSavedSettings, "RenderAvatarComplexityMode");
     bool render_friend =  (isBuddy() && complexity_render_mode > AV_RENDER_LIMIT_BY_COMPLEXITY);
@@ -12202,6 +12265,13 @@ bool LLVOAvatar::isImpostor()
     // <FS:minerjr> [FIRE-35735] Imposter/Impostor Avatar Exclusions
     static LLCachedControl<U32> impostor_avatar_exclude(gSavedSettings,"FSImpostorAvatarExclude", 0);
 
+    // <FS> FIRE-34340-2 RLV silhouettes must be impostored
+    if (isRlvSilhouette())
+    {
+        return true;
+    }
+    // </FS>
+
     // Store the result of is visually muted as used in possibly 2 places
     bool is_visual_muted = isVisuallyMuted();
 
@@ -12216,9 +12286,6 @@ bool LLVOAvatar::isImpostor()
             // isVisuallyMuted() ||
             is_visual_muted || // Save from calling isVisuallyMuted a second time
             // </FS:minerjr> [FIRE-35735]
-            // <FS> FIRE-34340-2 RLV silhouettes must be impostored
-            isRlvSilhouette() ||
-            // </FS>
             isTooSlowWithoutShadows() ||
             (sLimitNonImpostors && (mUpdatePeriod > 1) )
     );
@@ -13215,6 +13282,12 @@ LLVOAvatar::AvatarOverallAppearance LLVOAvatar::getOverallAppearance() const
         {
             result = AOA_INVISIBLE;
         }
+        // <FS> FIRE-34340-2 RLV silhouettes take priority over Always Render
+        else if (isRlvSilhouette() && (!isControlAvatar() || getAttachedAvatar()))
+        {
+            result = AOA_JELLYDOLL;
+        }
+        // </FS>
         else if (mVisuallyMuteSetting == AV_ALWAYS_RENDER)
         {
             result = AOA_NORMAL;
