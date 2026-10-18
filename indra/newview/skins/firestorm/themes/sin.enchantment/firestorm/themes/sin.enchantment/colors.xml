@@ -1240,13 +1240,13 @@
    <!-- syntax highlighting (LSL Scripts) -->
    <color
       name="ScriptText"
-      reference="LtGray"/>
+      reference="Yellow"/>
    <color
       name="ScriptBackground"
       value="0.100 0.100 0.100 1.000"/>
    <color
       name="ScriptCursorColor"
-      reference="Black"/>
+      reference="Yellow"/>
    <color
       name="SyntaxLslComment"
       value="0.694 0.388 0.294 1.000"/>
